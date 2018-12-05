@@ -1,4 +1,4 @@
-# PHPStan on-line error formatter
+# PHPStan one-line error formatter
 
 Compact and **clickable** PHPStan error output handler. Especially useful with [Awesome Console](https://github.com/anthraxx/intellij-awesome-console) (available in PHP Storm repositories).
 
