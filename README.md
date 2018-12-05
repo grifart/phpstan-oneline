@@ -1,6 +1,6 @@
 # PHPStan one-line error formatter
 
-Compact and **clickable** PHPStan error output handler. Especially useful with [Awesome Console](https://github.com/anthraxx/intellij-awesome-console) (available in PhpStorm repositories).
+Compact and **clickable** [PhpStan](http://github.com/phpstan/phpstan) error output handler. Especially useful with [Awesome Console](https://github.com/anthraxx/intellij-awesome-console) (available in PhpStorm repositories).
 
 So when you run for example:
 
