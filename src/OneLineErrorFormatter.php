@@ -4,19 +4,19 @@ namespace Grifart\PhpstanOneLine;
 
 use PHPStan\Command\AnalysisResult;
 use PHPStan\Command\ErrorFormatter\ErrorFormatter;
-use PHPStan\File\FileHelper;
+use PHPStan\File\RelativePathHelper;
 use Symfony\Component\Console\Style\OutputStyle;
 
 class OneLineErrorFormatter implements ErrorFormatter
 {
-	/** @var FileHelper */
-	private $fileHelper;
+	/** @var RelativePathHelper */
+	private $relativePathHelper;
 
 	public function __construct(
-		FileHelper $fileHelper
+		RelativePathHelper $relativePathHelper
 	)
 	{
-		$this->fileHelper = $fileHelper;
+		$this->relativePathHelper = $relativePathHelper;
 	}
 
 	public function formatErrors(
@@ -34,14 +34,10 @@ class OneLineErrorFormatter implements ErrorFormatter
 		}
 
 		foreach ($analysisResult->getFileSpecificErrors() as $fileSpecificError) {
-			$filename = RelativePathHelper::getRelativePath(
-				$this->fileHelper->getWorkingDirectory(),
-				$this->fileHelper->normalizePath($fileSpecificError->getFile())
-			);
 			$style->writeln(
 				sprintf(
 					'%s:%d %s',
-					$filename,
+					$this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
 					$fileSpecificError->getLine() ?? '?',
 					$fileSpecificError->getMessage()
 				)
