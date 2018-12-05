@@ -1,0 +1,16 @@
+{
+    "name": "grifart/phpstan-oneline",
+    "description": "PHPStan compact error formatter",
+    "type": "library",
+    "require": {
+        "php": ">= 7.0.0",
+        "phpstan/phpstan": "^0.10.0 || ^0.11.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jan Kuchař",
+            "email": "honza.kuchar@grifart.cz"
+        }
+    ]
+}

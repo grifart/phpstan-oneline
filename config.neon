@@ -1,0 +1,3 @@
+services:
+	errorFormatter.oneline:
+		class: Grifart\PhpstanOneLine\OneLineErrorFormatter
