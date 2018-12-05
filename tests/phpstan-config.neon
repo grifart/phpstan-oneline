@@ -1,0 +1,7 @@
+parameters:
+	level: max
+	paths: # relative from phpstan working directory
+		- src
+
+includes:
+	- ../config.neon
