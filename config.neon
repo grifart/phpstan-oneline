@@ -1,3 +1,9 @@
+parameters:
+	compact:
+		format: "{path}:{line} {error}"
+
 services:
 	errorFormatter.oneline:
 		class: Grifart\PhpstanOneLine\OneLineErrorFormatter
+		arguments:
+			format: %compact.format%

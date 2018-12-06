@@ -12,11 +12,16 @@ class OneLineErrorFormatter implements ErrorFormatter
 	/** @var RelativePathHelper */
 	private $relativePathHelper;
 
+	/** @var string */
+	private $format;
+
 	public function __construct(
-		RelativePathHelper $relativePathHelper
+		RelativePathHelper $relativePathHelper,
+		string $format
 	)
 	{
 		$this->relativePathHelper = $relativePathHelper;
+		$this->format = $format;
 	}
 
 	public function formatErrors(
@@ -35,11 +40,13 @@ class OneLineErrorFormatter implements ErrorFormatter
 
 		foreach ($analysisResult->getFileSpecificErrors() as $fileSpecificError) {
 			$style->writeln(
-				sprintf(
-					'%s:%d %s',
-					$this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
-					$fileSpecificError->getLine() ?? '?',
-					$fileSpecificError->getMessage()
+				strtr(
+					$this->format,
+					[
+						'{path}' => $this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
+						'{line}' => $fileSpecificError->getLine() ?? '?',
+						'{error}' => $fileSpecificError->getMessage(),
+					]
 				)
 			);
 		}
