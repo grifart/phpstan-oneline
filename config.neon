@@ -3,7 +3,7 @@ parameters:
 		format: "{path}:{line} {error}"
 
 services:
-	errorFormatter.oneline:
-		class: Grifart\PhpstanOneLine\OneLineErrorFormatter
+	errorFormatter.compact:
+		class: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: %compact.format%
