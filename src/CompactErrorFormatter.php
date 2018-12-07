@@ -7,7 +7,7 @@ use PHPStan\Command\ErrorFormatter\ErrorFormatter;
 use PHPStan\File\RelativePathHelper;
 use Symfony\Component\Console\Style\OutputStyle;
 
-class OneLineErrorFormatter implements ErrorFormatter
+class CompactErrorFormatter implements ErrorFormatter
 {
 	/** @var RelativePathHelper */
 	private $relativePathHelper;
