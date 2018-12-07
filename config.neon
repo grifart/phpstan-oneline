@@ -1,9 +1,14 @@
 parameters:
 	compact:
-		format: "{path}:{line} {error}"
+		format: "{path}:{line}\n  {error}"
 
 services:
 	errorFormatter.compact:
 		class: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: %compact.format%
+
+	errorFormatter.oneline:
+		class: Grifart\PhpstanOneLine\CompactErrorFormatter
+		arguments:
+			format: "{path}:{line} {error}"
