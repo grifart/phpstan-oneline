@@ -29,3 +29,19 @@ includes:
 
 1. Install [Awesome Console](https://github.com/anthraxx/intellij-awesome-console) (available in PhpStorm repositories)
 2. run phpstan in PhpStorm terminal
+
+
+## Custom error format
+
+There has been added `compact` error format. It looks like this by default:
+
+![](example-compact.png)
+
+`compact` error format is configurable using your `phpstan.neon`:
+
+```neon
+parameters:
+	compact:
+		format: "{path}:{line}\n ↳ {error}"
+```
+

@@ -1,6 +1,6 @@
 parameters:
 	compact:
-		format: "{path}:{line}\n  {error}"
+		format: "{path}:{line}\n ↳ {error}"
 
 services:
 	errorFormatter.compact:
