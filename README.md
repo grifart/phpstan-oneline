@@ -35,9 +35,13 @@ includes:
 
 There has been added `compact` error format. It looks like this by default:
 
+```bash
+phpstan analyze -l max --configuration phpstan.neon --error-format compact
+```
+
 ![](example-compact.png)
 
-Yout can customize `compact` error format in your `phpstan.neon`:
+You can customize `compact` error format in your `phpstan.neon`:
 
 ```neon
 parameters:
