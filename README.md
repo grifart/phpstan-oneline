@@ -1,5 +1,10 @@
 # PHPStan one-line error formatter
 
+[![Latest Stable Version](https://poser.pugx.org/grifart/phpstan-oneline/v/stable)](https://packagist.org/packages/grifart/phpstan-oneline)
+[![Total Downloads](https://poser.pugx.org/grifart/phpstan-oneline/downloads)](https://packagist.org/packages/grifart/phpstan-oneline)
+[![License](https://poser.pugx.org/grifart/phpstan-oneline/license)](https://packagist.org/packages/grifart/phpstan-oneline)
+[![Build Status](https://travis-ci.org/grifart/phpstan-oneline.svg?branch=master)](https://travis-ci.org/grifart/phpstan-oneline)
+
 Compact and **clickable** [PhpStan](http://github.com/phpstan/phpstan) error output handler.
 
 So when you run for example:
