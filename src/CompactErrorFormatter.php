@@ -43,6 +43,7 @@ class CompactErrorFormatter implements ErrorFormatter
 				strtr(
 					$this->format,
 					[
+						'{absolutePath}' => $fileSpecificError->getFile(),
 						'{path}' => $this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
 						'{line}' => $fileSpecificError->getLine() ?? '?',
 						'{error}' => $fileSpecificError->getMessage(),
