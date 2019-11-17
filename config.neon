@@ -1,6 +1,6 @@
 parameters:
 	compact:
-		format: "{path}:{line}\n ↳ {error}"
+		format: "�]8;;phpstorm://open/?file={absolutePath}&line={line}�\\{path}:{line}�]8;;�\\\n ↳ {error}\n"
 
 services:
 	errorFormatter.compact:
@@ -11,4 +11,4 @@ services:
 	errorFormatter.oneline:
 		class: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
-			format: "{path}:{line} {error}"
+			format: "�]8;;phpstorm://open/?file={absolutePath}&line={line}�\\{path}:{line}�]8;;� {error}"
