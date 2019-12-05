@@ -4,8 +4,8 @@ namespace Grifart\PhpstanOneLine;
 
 use PHPStan\Command\AnalysisResult;
 use PHPStan\Command\ErrorFormatter\ErrorFormatter;
+use PHPStan\Command\Output;
 use PHPStan\File\RelativePathHelper;
-use Symfony\Component\Console\Style\OutputStyle;
 
 class CompactErrorFormatter implements ErrorFormatter
 {
@@ -26,16 +26,16 @@ class CompactErrorFormatter implements ErrorFormatter
 
 	public function formatErrors(
 		AnalysisResult $analysisResult,
-		OutputStyle $style
+		Output $output
 	): int
 	{
 		if (!$analysisResult->hasErrors()) {
-			$style->success('No errors');
+			$output->writeLineFormatted('No errors');
 			return 0;
 		}
 
 		foreach ($analysisResult->getNotFileSpecificErrors() as $notFileSpecificError) {
-			$style->writeln(sprintf('<unknown location> %s', $notFileSpecificError));
+			$output->writeLineFormatted(sprintf('<unknown location> %s', $notFileSpecificError));
 		}
 
 		foreach ($analysisResult->getFileSpecificErrors() as $fileSpecificError) {
@@ -43,7 +43,7 @@ class CompactErrorFormatter implements ErrorFormatter
 				? $fileSpecificError->getTraitFilePath() ?? $fileSpecificError->getFilePath()
 				: $fileSpecificError->getFile();
 
-			$style->writeln(
+			$output->writeLineFormatted(
 				strtr(
 					$this->format,
 					[
@@ -56,8 +56,12 @@ class CompactErrorFormatter implements ErrorFormatter
 			);
 		}
 
-		$style->error(sprintf($analysisResult->getTotalErrorsCount() === 1 ? 'Found %d error' : 'Found %d errors', $analysisResult->getTotalErrorsCount()));
+		$output->writeRaw(sprintf(
+			'<error severity="error" message="Found %d error%s" />',
+			$analysisResult->getTotalErrorsCount(),
+			$analysisResult->getTotalErrorsCount() === 1 ? '' : 's'
+		));
+		$output->writeLineFormatted('');
 		return 1;
 	}
-
 }
