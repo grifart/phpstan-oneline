@@ -6,8 +6,8 @@
 		"test": "vendor/bin/phpstan analyse -c tests/phpstan-config.neon --error-format oneline --no-progress --no-interaction"
 	},
     "require": {
-        "php": ">= 7.0.0",
-        "phpstan/phpstan": "~0.10"
+        "php": "^7.1",
+        "phpstan/phpstan": "~0.12"
     },
     "license": "MIT",
     "authors": [
