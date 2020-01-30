@@ -57,7 +57,7 @@ class CompactErrorFormatter implements ErrorFormatter
 		}
 
 		$output->writeRaw(sprintf(
-			'<error severity="error" message="Found %d error%s" />',
+			'Found %d error%s',
 			$analysisResult->getTotalErrorsCount(),
 			$analysisResult->getTotalErrorsCount() === 1 ? '' : 's'
 		));
