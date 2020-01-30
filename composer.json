@@ -3,6 +3,7 @@
     "description": "PHPStan compact error formatter",
     "type": "library",
 	"scripts": {
+		"verify": ["@test"],
 		"test": "vendor/bin/phpstan analyse -c tests/phpstan-config.neon --error-format oneline --no-progress --no-interaction"
 	},
     "require": {
