@@ -2,10 +2,10 @@
     "name": "grifart/phpstan-oneline",
     "description": "PHPStan compact error formatter",
     "type": "library",
-	"scripts": {
-		"verify": ["@test"],
-		"test": "vendor/bin/phpstan analyse -c tests/phpstan-config.neon --error-format oneline --no-progress --no-interaction"
-	},
+    "scripts": {
+        "verify": ["@test"],
+        "test": "vendor/bin/phpstan analyse -c tests/phpstan-config.neon --error-format oneline --no-progress --no-interaction"
+    },
     "require": {
         "php": "^7.1 || ^8.0",
         "phpstan/phpstan": "^0.12"
@@ -17,9 +17,9 @@
             "email": "honza.kuchar@grifart.cz"
         }
     ],
-	"autoload": {
-		"psr-4": {
-			"Grifart\\PhpstanOneLine\\": "src"
-		}
-	}
+    "autoload": {
+        "psr-4": {
+            "Grifart\\PhpstanOneLine\\": "src"
+        }
+    }
 }
