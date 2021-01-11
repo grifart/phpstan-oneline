@@ -1,7 +1,7 @@
 {
     "name": "grifart/phpstan-oneline",
     "description": "PHPStan compact error formatter",
-    "type": "library",
+    "type": "phpstan-extension",
     "scripts": {
         "verify": ["@test"],
         "test": "vendor/bin/phpstan analyse -c tests/phpstan-config.neon --error-format oneline --no-progress --no-interaction"
