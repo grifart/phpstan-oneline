@@ -15,13 +15,18 @@ class CompactErrorFormatter implements ErrorFormatter
 	/** @var string */
 	private $format;
 
+	/** @var string */
+	private $editorUrl;
+
 	public function __construct(
 		RelativePathHelper $relativePathHelper,
-		string $format
+		string $format,
+		?string $editorUrl
 	)
 	{
 		$this->relativePathHelper = $relativePathHelper;
 		$this->format = $format;
+		$this->editorUrl = $editorUrl ?? '';
 	}
 
 	public function formatErrors(
@@ -48,7 +53,8 @@ class CompactErrorFormatter implements ErrorFormatter
 					$this->format,
 					[
 						'{absolutePath}' => $absolutePath,
-						'{path}' => $this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
+                        '{editorUrl}' => str_replace(['%file%', '%line%'], [$absolutePath, $fileSpecificError->getLine() ?? ''], $this->editorUrl),
+                        '{path}' => $this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
 						'{line}' => $fileSpecificError->getLine() ?? '?',
 						'{error}' => $fileSpecificError->getMessage(),
 					]

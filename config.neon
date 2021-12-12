@@ -12,8 +12,10 @@ services:
 		class: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: %compact.format%
+			editorUrl: %editorUrl%
 
 	errorFormatter.oneline:
 		class: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: "{path}:{line} {error}"
+			editorUrl: %editorUrl%
