@@ -9,11 +9,11 @@ parameters:
 
 services:
 	errorFormatter.compact:
-		class: Grifart\PhpstanOneLine\CompactErrorFormatter
+		factory: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: %compact.format%
 
 	errorFormatter.oneline:
-		class: Grifart\PhpstanOneLine\CompactErrorFormatter
+		factory: Grifart\PhpstanOneLine\CompactErrorFormatter
 		arguments:
 			format: "{path}:{line} {error}"

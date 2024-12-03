@@ -39,9 +39,7 @@ class CompactErrorFormatter implements ErrorFormatter
 		}
 
 		foreach ($analysisResult->getFileSpecificErrors() as $fileSpecificError) {
-			$absolutePath = method_exists($fileSpecificError, 'getTraitFilePath')
-				? $fileSpecificError->getTraitFilePath() ?? $fileSpecificError->getFilePath()
-				: $fileSpecificError->getFile();
+			$absolutePath = $fileSpecificError->getTraitFilePath() ?? $fileSpecificError->getFilePath();
 
 			$output->writeLineFormatted(
 				strtr(
